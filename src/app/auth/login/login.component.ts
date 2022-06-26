@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { UserService } from 'src/app/core/user.service';
 import { emailValidator } from '../util';
@@ -13,13 +13,13 @@ export class LoginComponent implements OnInit {
   
   errorMessage: string = '';
 
-  loginFormGroup: FormGroup = this.formBuilder.group({
-    email: new FormControl(null, [Validators.required, emailValidator]),
-    password: new FormControl(null, [Validators.required, Validators.minLength(5)])
+  loginFormGroup: UntypedFormGroup = this.formBuilder.group({
+    email: new UntypedFormControl(null, [Validators.required, emailValidator]),
+    password: new UntypedFormControl(null, [Validators.required, Validators.minLength(5)])
   });
 
   constructor(
-    private formBuilder: FormBuilder,
+    private formBuilder: UntypedFormBuilder,
     private userService: UserService,
     private router: Router) { }
 
