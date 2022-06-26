@@ -18,14 +18,14 @@ export class AuthService {
 
   constructor(private httpClient: HttpClient, private store: Store<IRootState>) { }
 
-  // login$(userData: { email: string, password: string }): Observable<IUser> {
-  //   return this.httpClient
-  //     .post<IUser>(`${environment.apiUrl}/login`, userData, { withCredentials: true, observe: 'response' })
-  //     .pipe(
-  //       map(response => response.body),
-  //     )
-  // }
-
+  login$(userData: { email: string, password: string }): Observable<IUser> {
+    return this.httpClient
+      .post<IUser>(`${environment.apiUrl}/login`, userData, { withCredentials: true, observe: 'response' })
+      .pipe(
+        map(response => response.body),
+      )
+  }
+  
   logout$(): Observable<void> {
     return this.httpClient
       .post<void>(`${environment.apiUrl}/logout`, {}, { withCredentials: true })

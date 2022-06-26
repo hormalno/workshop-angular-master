@@ -9,6 +9,8 @@ import { PostService } from 'src/app/core/post.service';
 })
 export class PostListComponent implements OnInit {
 
+  now = new Date();
+
   @Input() themeID!: string;
 
   postList!: IPost[];

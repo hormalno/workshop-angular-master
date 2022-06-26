@@ -6,11 +6,19 @@ const routes: Routes = [
   {
     path: '',
     pathMatch: 'full',
-    redirectTo: 'home',
+    redirectTo: 'home'
   },
   {
       path: 'home',
       component: HomePageComponent
+  },
+  {
+      path: 'user',
+      loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule)
+  },
+  {
+      path: 'themes',
+      loadChildren: () => import('./feature/themes/themes.module').then(m => m.ThemesModule)
   },
   {
       path: '**',
@@ -18,4 +26,6 @@ const routes: Routes = [
   }
 ];
 
-export const AppRoutingModule = RouterModule.forRoot(routes)
+export const AppRoutingModule = RouterModule.forRoot(routes, {
+  scrollPositionRestoration: 'enabled'
+});

@@ -9,6 +9,7 @@ import { ThemesNewPageComponent } from './themes-new-page/themes-new-page.compon
 import { ThemesPageComponent } from './themes-page/themes-page.component';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { ThemesRoutingModule } from './themes-routing.module';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -24,7 +25,9 @@ import { ThemesRoutingModule } from './themes-routing.module';
   imports: [
     CommonModule,
     SharedModule,
-    ThemesRoutingModule
+    ThemesRoutingModule,
+    FormsModule,
+    ReactiveFormsModule
   ]
 })
 export class ThemesModule { }
